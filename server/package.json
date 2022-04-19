@@ -16,7 +16,8 @@
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "knex": "^1.0.7",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "prettier": "^2.6.2"

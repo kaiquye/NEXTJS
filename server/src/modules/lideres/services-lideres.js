@@ -3,11 +3,11 @@ const Utils = require('./Utils')
 
 class Services {
 
-    async Criar(nome, cpf, tipoAcesso, equipe) {
+    async Criar(nome, cpf, equipe) {
         try {
-            const Error = Utils.VerificarCamposNullos([nome, cpf, tipoAcesso, equipe])
+            const Error = Utils.VerificarCamposNullos([nome, cpf, equipe])
             if (Error) return Error
-            const Lider = await Model.Criar(nome, cpf, tipoAcesso, equipe);
+            const Lider = await Model.Criar(nome, cpf, equipe);
             console.log(Lider)
         } catch (error) {
             console.log(error)

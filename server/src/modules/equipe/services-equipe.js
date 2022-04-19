@@ -7,8 +7,7 @@ class Services {
         try {
             const Error = Utils.VerificarCamposNullos([nome])
             if (Error) return Error
-            const Lider = await Model.Criar(nome);
-            console.log(Lider)
+            await Model.Criar(nome);
         } catch (error) {
             console.log(error)
         }

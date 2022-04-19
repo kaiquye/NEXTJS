@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const Controller = require('./controller-equipe')
+const Controller = require('./controller-mensagens-temporarias')
 
 class Rotas {
     App;

@@ -6,7 +6,7 @@ class Model {
     async Criar(mensagens, equipe) {
         console.log(mensagens, equipe)
         try {
-            await ConnectionDatabase('Mensagens').insert({ Mensagens: mensagens, Equipe_id: equipe })
+            await ConnectionDatabase('Mensagens').insert({ mensagem: mensagens, Equipe_id: equipe })
         } catch (error) {
             console.log(error)
             return new Error('Não foi possivel salvar a nova mensagem')

@@ -14,7 +14,7 @@ class Rotas {
     }
 
     RoutesProtegidas() {
-        this.App.get('/', Controller.Criar);
+        this.App.post('/', Controller.Criar);
     }
 }
 module.exports = new Rotas().App;
