@@ -1,0 +1,80 @@
+.section_formulario{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(41, 203, 252, 0.747);
+}
+.div_abst_background{
+    box-shadow: rgba(22, 22, 22, 0.315) 10px 10px 10px 10px;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    border-radius: 9000px 2240px 50420px 50000px;
+}
+.titulo_formulario_wood{
+    margin-bottom: 40px;
+    color: #222;    
+
+}
+.main_formulario{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: absolute;
+}
+.div_formulario{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 10px;
+}
+.input_formulario{
+    margin-top: 10px;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid rgb(206, 206, 206);
+}
+.button_formulario_colaborador{
+    padding: 10px;
+    background-color: rgba(60, 142, 219, 0.555);
+    border: none;
+    padding: 8px;
+    color: white;
+    font-weight: 600;
+}
+.button_formulario_lider{
+    padding: 10px;
+    background-color: white;
+    border: none;
+    padding: 8px;
+    color: black;
+    font-weight: 600;
+    margin: 4px;
+}
+.titulo_formulario{
+    width: 50%;
+    background-color: rgba(60, 142, 219, 0.521);
+    text-align: start;
+    padding-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(228, 228, 228);
+    padding: 8px;
+    border-end-end-radius: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 10px;
+    margin-bottom: 30px;
+}
+.label_formulario_entrarcomo{
+    margin-top: 10px;
+    font-size: 12px;
+}

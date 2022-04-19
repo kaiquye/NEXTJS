@@ -3,8 +3,19 @@ class Model {
 
     async Criar(nome, cpf, equipe) {
         try {
-            // buscar uma equipe antes de cadastrar uma nova
+            const VerificarColaborador = await ConnectionDatabase('colaborador').select('id').where('cpf', cpf)
+            if (VerificarColaborador[0]) return new Error('Colaborador ja cadastrado.')
             await ConnectionDatabase('colaborador').insert({ nome, cpf, Equipe_id: equipe })
+        } catch (error) {
+            console.log(error)
+            return new Error('Não foi possivel criar uma nova equipe')
+        }
+    }
+
+    async Buscar(nome, cpf) {
+        try {
+            const Evalido = await ConnectionDatabase('colaborador').select('acesso').where('cpf', cpf).first()
+            return Evalido
         } catch (error) {
             console.log(error)
             return new Error('Não foi possivel criar uma nova equipe')

@@ -5,6 +5,7 @@ const Lideres = require('../src/modules/lideres/routes-lideres')
 const Equipe = require('./modules/equipe/routes-equipe')
 const Mensagens = require('./modules/mensagens/routes-mensagens')
 const Colaboradores = require('./modules/colaboradores/routes-colaboradores')
+const mensagensTemporarias = require('./modules/mensagens-temporarias/routes-mensagens-temporarias')
 class Server {
     App;
     constructor() {
@@ -22,6 +23,7 @@ class Server {
         this.App.use('/lideres', Lideres)
         this.App.use('/equipe', Equipe)
         this.App.use('/mensagens', Mensagens)
+        this.App.use('/mensagenstemporarias', mensagensTemporarias)
         this.App.use('/colaboradores', Colaboradores)
     }
 }

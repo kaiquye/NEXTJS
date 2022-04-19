@@ -3,13 +3,13 @@ const { ConnectionDatabase } = require('../../database/index');
 
 class Model {
 
-    async Criar(mensagens, equipe, dataPublicacao) {
+    async Criar(mensagens, equipe, dataPublicacao, colaborador) {
         console.log(mensagens, equipe, dataPublicacao)
         try {
-            await ConnectionDatabase('mensagens_temporaria').insert({ mensagens, Equipe_id: equipe, dataPublicacao })
+            await ConnectionDatabase('mensagens_temporaria').insert({ mensagem: mensagens, Equipe_id: equipe, dataPublicacao, Colaborador_id: colaborador })
         } catch (error) {
             console.log(error)
-            return new Error('Não foi possivel salvar a nova mensagem') 
+            throw new Error('Não foi possivel salvar a nova mensagem')
         }
     }
 }

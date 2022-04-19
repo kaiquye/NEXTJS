@@ -8,5 +8,6 @@ class Utils {
         }
         return false;
     }
+
 }
 module.exports = new Utils;

@@ -3,15 +3,11 @@ const Utils = require('./Utils')
 
 class Services {
 
-    async Criar(mensagens, equipe, dataPublicacao) {
-        console.log('teste2', mensagens, equipe)
+    async Criar(mensagens, equipe, dataPublicacao, colaborador) {
         try {
-            const Error = Utils.VerificarCamposNullos([mensagens, equipe])
-            if (Error) return Error
-            const Lider = await Model.Criar(mensagens, equipe, dataPublicacao);
-            console.log(Lider)
+            return await Model.Criar(mensagens, equipe, dataPublicacao, colaborador);
         } catch (error) {
-            console.log(error)
+            return new Error('Não foi possivel cadastrar uma nova mensagem.')
         }
     }
 }
