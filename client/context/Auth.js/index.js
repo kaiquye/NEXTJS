@@ -17,6 +17,7 @@ export default function AuthContextProvider({ children }) {
     async function singUserLider() {
         //login lider
         // quando a pagina de lider for carregada...
+        // login - LocalStorage - funcão do next.js carrega antes da pagina, server in page - Verify token
 
     }
 
