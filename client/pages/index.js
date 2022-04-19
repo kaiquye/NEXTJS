@@ -2,8 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import FormularioLogin from '../componentes/Pagina-login/formulario/formulario'
+import { useContext } from 'react'
+import { AuthContext } from '../context/Auth.js'
 
 export default function Home() {
+  const { singUserColaborador, Colaborador } = useContext(AuthContext);
+
   return (
     <div className={styles.container}>
       <Head>
