@@ -12,6 +12,7 @@ export default function FormularioLider({ enviar, id }) {
                     <label>Escreva sua mensagem, <strong>Lider</strong></label>
                     <input className={style.input_novamensagem} type='text' onChange={(e) => setMensagem(e.target.value)} />
                     <button onClick={() => enviar(mensagem, id)} >Nova Mensagem</button>
+                    <button >Voltar</button>
                 </div>
             </main>
         </section>

@@ -1,29 +1,46 @@
-.section_mensagem{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
+.section_mensagem {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
 }
-.main_mensagem{
-    display: flex;
-    width: 90%;
+.main_mensagem {
+  display: flex;
+  width: 90%;
 }
-.div_mensagem_pt{
-    width: 100%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    margin-right: 10px;
-    padding: 10px;
+.div_mensagem_pt {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  margin-right: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
-.div_mensagem_in{
-    width: 100%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    padding: 10px;
+.div_mensagem_in {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  margin-right: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.div_mensagem_in section {
+  background-color: rgba(82, 150, 234, 0.669);
+  margin-top: 4px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+.div_mensagem_pt section {
+  background-color: rgba(82, 234, 97, 0.669);
+  margin-top: 4px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
 }

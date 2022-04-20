@@ -4,12 +4,14 @@ const jwt = require('jsonwebtoken');
 class Auth {
 
     CriarTokenColaborador(data) {
+        console.log(data)
         const token = jwt.sign({ data }, process.env.SECRET, { expiresIn: process.env.EXPIRESIN });
         console.log(token)
         return token
     }
 
     CriarTokenLider(data) {
+        console.log('validarlider', data)
         const token = jwt.sign({ data }, process.env.SECRET, { expiresIn: process.env.EXPIRESIN });
         console.log(token)
         return token
@@ -48,6 +50,24 @@ class Auth {
         } catch (error) {
             console.log(error)
             return res.status(401).json({ message: 'Usuario não tem permisão.' });
+        }
+    }
+
+    UsuarioAuth(req, res) {
+        const Token = req.headers['x-custom-header'];
+        if (!Token) {
+            return res.status(401).json({ message: 'Token não informado.', ok: false });
+        }
+        try {
+            const data = jwt.verify(Token, process.env.SECRET);
+            if (data) {
+                const { Equipe_id, Acesso, cpf } = data.data;
+                return res.status(200).json({ message: 'Esse usuario é bom.', Equipe_id, Acesso, cpf, ok: true });
+            }
+            throw new Error('')
+        } catch (error) {
+            console.log(error)
+            return res.status(401).json({ message: 'Usuario não tem permisão.', ok: false });
         }
     }
 }
