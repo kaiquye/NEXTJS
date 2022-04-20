@@ -1,5 +1,10 @@
+import { useState } from 'react';
 import style from './formulario.module.css'
-export default function FormularioLogin() {
+export default function FormularioLogin({ singUserColaborador, signUserLider }) {
+
+    const [nome, setNome] = useState('');
+    const [cpf, setCpf] = useState(0);
+
     return (
         <section className={style.section_formulario}>
             <div className={style.div_abst_background}>
@@ -15,16 +20,16 @@ export default function FormularioLogin() {
                 </div>
                 <div className={style.div_formulario}>
                     <label>Nome</label>
-                    <input className={style.input_formulario} type='text' />
+                    <input onChange={(e) => setNome(e.target.value)} className={style.input_formulario} type='text' />
                     <label>CPF</label>
-                    <input className={style.input_formulario} type='text' />
+                    <input onChange={(e) => setCpf(e.target.value)} className={style.input_formulario} type='text' />
                 </div>
                 <div>
                     <label className={style.label_formulario_entrarcomo}>Entrar como</label>
                 </div>
                 <div>
-                    <button className={style.button_formulario_colaborador} > Colaborador </button>
-                    <button className={style.button_formulario_lider} > Lider </button>
+                    <button className={style.button_formulario_colaborador} onClick={async () => await singUserColaborador(nome, cpf)} > Colaborador </button>
+                    <button className={style.button_formulario_lider} onClick={async () => await signUserLider(nome, cpf)}  > Lider </button>
                 </div>
             </main>
         </section>

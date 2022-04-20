@@ -15,6 +15,7 @@ class Rotas {
 
     RoutesProtegidas() {
         this.App.post('/', Controller.Criar);
+        this.App.get('/', Controller.BuscarTodos);
     }
 }
 module.exports = new Rotas().App;

@@ -13,8 +13,9 @@ class Model {
     }
 
     async Buscar(nome, cpf) {
+        console.log(cpf)
         try {
-            const Evalido = await ConnectionDatabase('colaborador').select('acesso').where('cpf', cpf).first()
+            const Evalido = await ConnectionDatabase('colaborador').select('acesso', 'Equipe_id').where('cpf', cpf);
             return Evalido
         } catch (error) {
             console.log(error)

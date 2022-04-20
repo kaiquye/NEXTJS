@@ -22,8 +22,9 @@ class Services {
             }
             const Acesso = await Model.Buscar(nome, cpf);
             if (!Acesso) throw new Error('')
-            const Token = NovoToken.CriarTokenColaborador(Acesso);
-            return Token;
+            console.log(Acesso[0].Equipe_id)
+            const Token = NovoToken.CriarTokenColaborador(Acesso.acesso);
+            return { Token, equipe: Acesso[0].Equipe_id };
         } catch (error) {
             console.log(error)
         }

@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import { AuthContext } from '../context/Auth.js'
 
 export default function Home() {
-  const { singUserColaborador, Colaborador } = useContext(AuthContext);
+  const { singUserColaborador, signUserLider } = useContext(AuthContext);
 
   return (
     <div className={styles.container}>
@@ -18,7 +18,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <div>
-          <FormularioLogin />
+          <FormularioLogin singUserColaborador={singUserColaborador} signUserLider={signUserLider} />
         </div>
       </main>
 

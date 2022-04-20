@@ -1,29 +1,39 @@
-import { createContext, useState } from 'react'
+import { createContext, useState } from 'react';
+import { SingColaborador, SignLider, EnviarMensagem } from '../../Services/index.';
+import { setCookie } from 'nookies'
+import Router from 'next/router'
 
 export const AuthContext = createContext({});
 
 
 export default function AuthContextProvider({ children }) {
 
-    const [Colaborador, setColaborador] = useState();
-    const [Lider, setLider] = useState();
+    const [equipe, setEquipe] = useState(0);
 
-    async function singUserColaborador() {
-        //login colaboradores
-        // quando a pagina de colaboradores for carregada...
-
+    async function singUserColaborador(nome, cpf) {
+        const Token = await SingColaborador(nome, cpf);
+        if (Token) {
+            setCookie(Token.Token)
+            setEquipe(Token.Equipe)
+            Router.push('/colaborador')
+        }
     }
 
-    async function singUserLider() {
-        //login lider
-        // quando a pagina de lider for carregada...
-        // login - LocalStorage - funcão do next.js carrega antes da pagina, server in page - Verify token
-
+    async function signUserLider(nome, cpf) {
+        const Token = await SignLider(nome, cpf);
+        if (Token) {
+            setCookie(Token.Token)
+            setEquipe(Token.Equipe)
+            Router.push('/lider')
+        }
     }
 
+    async function EnviarMensagemLider(mensagem) {
+        await EnviarMensagem(mensagem, equipe);
+    }
 
     return (
-        <AuthContext.Provider value={{ singUserColaborador, Colaborador }}>
+        <AuthContext.Provider value={{ singUserColaborador, signUserLider, EnviarMensagemLider }}>
             {children}
         </AuthContext.Provider>
     )

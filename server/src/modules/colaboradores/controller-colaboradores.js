@@ -17,9 +17,12 @@ class Controller {
     async CriarTokenColaborador(req, res) {
         try {
             let { nome, cpf } = req.body;
+            console.log(req.body)
+            console.log('------', nome, 'cpf', cpf)
             const Token = await Services.Buscar(nome, cpf);
             if (Token instanceof Error) return res.status(400).json({ error: Token.message, ok: false })
-            return res.status(201).json({ Token: Token, ok: true })
+            console.log(Token)
+            return res.status(201).json({ Token: Token.Token, Equipe: Token.equipe, ok: true })
         } catch (error) {
             return res.status(500).json({ error: error.message })
         }

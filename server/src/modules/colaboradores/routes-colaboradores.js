@@ -20,7 +20,7 @@ class Rotas {
         this.App.post('/', Controller.Criar);
     }
     RoutesPublicas() {
-        this.App.get('/', Controller.CriarTokenColaborador);
+        this.App.post('/sing', Controller.CriarTokenColaborador);
     }
 }
 module.exports = new Rotas().App;
