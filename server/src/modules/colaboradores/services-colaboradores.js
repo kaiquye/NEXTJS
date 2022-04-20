@@ -29,5 +29,14 @@ class Services {
             console.log(error)
         }
     }
+
+    async BuscarTodos(id) {
+        try {
+            const Colaboradores = await Model.BuscarTodos(id);
+            return Colaboradores
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 module.exports = new Services()

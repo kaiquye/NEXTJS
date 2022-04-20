@@ -20,7 +20,10 @@ class Services {
             const Lider = await Model.Buscar(nome, cpf);
             if (!Lider) return new Error('')
             const Token = Auth.CriarTokenLider(Lider);
-            return Token;
+            return {
+                Token,
+                Lider
+            };
         } catch (error) {
             console.log(error)
         }

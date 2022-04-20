@@ -15,8 +15,9 @@ class Model {
 
     async Buscar(nome, cpf) {
         try {
-            const Evalido = await ConnectionDatabase('lider').select('id').where('cpf', cpf)
-            return Evalido;
+            console.log(cpf)
+            const Evalido = await ConnectionDatabase('lider').select('Equipe_id', 'Acesso').where('cpf', cpf)
+            return Evalido[0];
         } catch (error) {
             console.log(error)
             return new Error('Não foi possivel criar um noov lider')

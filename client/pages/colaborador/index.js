@@ -5,12 +5,12 @@ export default function Colaborador() {
         <sectio>
             <main>
                 <h1>cl</h1>
-                {/* <div>
+                <div>
                     <MensagensColaborador mensagensPt={mensagensPt} mensagensIng={mensagensIng} />
                 </div>
                 <div>
                     <NovaMensagemColaborador enviar={enviar} />
-                </div> */}
+                </div>
             </main>
         </sectio>
     )
@@ -19,7 +19,7 @@ export default function Colaborador() {
 // SSR - Server Sider Render
 export async function getServerSideProps(ctx) {
     const cookies = nookies.get(ctx)
-    if (!cookies.mensagensDaSorte) {
+    if (!cookies.Token) {
         return {
             redirect: {
                 destination: '/',

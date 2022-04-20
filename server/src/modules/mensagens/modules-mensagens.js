@@ -4,17 +4,20 @@ const { ConnectionDatabase } = require('../../database/index');
 class Model {
 
     async Criar(mensagens, equipe) {
+        console.log(mensagens, equipe)
         try {
-            await ConnectionDatabase('Mensagens').insert({ mensagem: mensagens, Equipe_id: equipe })
+            console.log('criar nova mensagem')
+            await ConnectionDatabase('mensagens').insert({ mensagem: mensagens, Equipe_id: equipe })
         } catch (error) {
             console.log(error)
             throw new Error('Não foi possivel salvar a nova mensagem')
         }
     }
 
-    async Criar(equipe) {
+    async BuscarTodos(equipe) {
+        console.log('eq',equipe)
         try {
-            return await ConnectionDatabase('Mensagens').select('mensagens').where('Equipe_id', equipe);
+            return await ConnectionDatabase('Mensagens').select('mensagem').where('Equipe_id', equipe);
         } catch (error) {
             console.log(error)
             throw new Error('Não foi possivel buscar mensagens')

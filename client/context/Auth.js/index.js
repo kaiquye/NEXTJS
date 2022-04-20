@@ -15,21 +15,28 @@ export default function AuthContextProvider({ children }) {
         if (Token) {
             setCookie(Token.Token)
             setEquipe(Token.Equipe)
+            setAuth(true)
             Router.push('/colaborador')
         }
     }
 
     async function signUserLider(nome, cpf) {
-        const Token = await SignLider(nome, cpf);
+        const { Token, Lider } = await SignLider(nome, cpf);
         if (Token) {
-            setCookie(Token.Token)
-            setEquipe(Token.Equipe)
-            Router.push('/lider')
+            alert('token')
+            setCookie(null, 'token', Token, {
+                maxAge: 30 * 24 * 60 * 60,
+                path: '/',
+            })
+            Router.push(`/lider/${Lider.Equipe_id}`)
         }
     }
 
-    async function EnviarMensagemLider(mensagem) {
+    async function EnviarMensagemLider(mensagem, equipe) {
+        alert(mensagem, equipe)
+        console.log(mensagem, equipe)
         await EnviarMensagem(mensagem, equipe);
+        window.location.reload();
     }
 
     return (

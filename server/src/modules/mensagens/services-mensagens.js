@@ -4,7 +4,7 @@ const Utils = require('./Utils')
 class Services {
 
     async Criar(mensagens, equipe) {
-        console.log('teste2', mensagens, equipe)
+        console.log('teste1', mensagens, equipe)
         try {
             const Lider = await Model.Criar(mensagens, equipe);
             console.log(Lider)

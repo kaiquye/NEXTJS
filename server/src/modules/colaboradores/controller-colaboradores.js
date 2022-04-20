@@ -27,5 +27,18 @@ class Controller {
             return res.status(500).json({ error: error.message })
         }
     }
+
+    async BuscarTodos(req, res) {
+        try {
+            let { id } = req.params;
+            console.log(req.params)
+            const Colaboradores = await Services.BuscarTodos(id);
+            if (Colaboradores instanceof Error) return res.status(400).json({ error: Colaboradores.message, ok: false })
+            console.log(Colaboradores)
+            return res.status(201).json({ Colaboradores, ok: true })
+        } catch (error) {
+            return res.status(500).json({ error: error.message })
+        }
+    }
 }
 module.exports = new Controller()

@@ -21,6 +21,7 @@ class Rotas {
     }
     RoutesPublicas() {
         this.App.post('/sing', Controller.CriarTokenColaborador);
+        this.App.get('/:id', Controller.BuscarTodos);
     }
 }
 module.exports = new Rotas().App;

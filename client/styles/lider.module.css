@@ -1,0 +1,29 @@
+.section_lider{
+    width: 100%;
+    height: 100vh;
+}
+.menu_lider{}
+
+.main_lider{
+    height: 100vh;
+}
+.menu_lider{
+    width: 100%;
+}
+.menu_buttons{
+    padding-left: 10px;
+    gap: 2px;
+}
+.menu_buttons button{
+    border: none;
+    padding: 5px;
+    margin-left: 2px;
+}
+.tabela_colaborador{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lista_participantes{
+}
