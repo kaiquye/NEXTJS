@@ -1,2 +1,2 @@
-# Dsftora
--Criar um modulo de auth separado.
+# Desafio tora transpoter
+- Desenvolver um chat em next.js. 
