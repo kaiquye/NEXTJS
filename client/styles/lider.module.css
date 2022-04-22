@@ -1,22 +1,29 @@
-.section_lider{
-    width: 100%;
-    height: 100vh;
+.section_lider {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(7, 139, 255);
 }
-.menu_lider{}
+.menu_lider {
+    background-color: rgb(7, 139, 255);
+}
 
-.main_lider{
-    height: 100vh;
+.main_lider {
+  height: 100vh;
+  background-color: rgb(7, 139, 255);
 }
-.menu_lider{
-    width: 100%;
-    height: 60vh;
+.menu_lider {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.menu_buttons{
-    padding-left: 10px;
-    gap: 2px;
+.menu_buttons {
+  padding-left: 10px;
+  gap: 2px;
 }
-.menu_buttons button{
-    border: none;
-    padding: 5px;
-    margin-left: 2px;
+.menu_buttons button {
+  border: none;
+  padding: 5px;
+  margin-left: 2px;
 }

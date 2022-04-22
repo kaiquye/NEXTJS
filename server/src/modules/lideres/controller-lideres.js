@@ -13,12 +13,12 @@ class Controller {
     }
 
     async CriarToken(req, res) {
-        console.log(req.body)
+        console.log('---------------',req.body)
         try {
             let { nome, cpf } = req.body;
             const { Token, Lider } = await Services.CriarToken(nome, cpf)
             if (Token instanceof Error) return res.status(400).json({ error: Token.message, ok: false })
-            return res.status(201).json({ Token: Token, Lider, ok: true })
+            return res.status(201).json({ Token: Token, ...Lider, ok: true })
         } catch (error) {
             return res.status(500).json({ error: error.message })
         }

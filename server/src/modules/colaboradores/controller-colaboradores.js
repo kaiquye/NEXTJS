@@ -6,6 +6,7 @@ class Controller {
         console.log('colaborador', req.body)
         try {
             let { nome, cpf, equipe } = req.body;
+            if (!nome, !cpf, !equipe) return res.status(400).json({ error: 'Campos fazios. ', ok: false })
             const Erro = await Services.Criar(nome, cpf, equipe);
             if (Erro instanceof Error) return res.status(400).json({ error: Erro.message, ok: false })
             return res.status(201).json({ message: 'Colaborador criado com sucesso ! ', ok: true })
@@ -17,12 +18,9 @@ class Controller {
     async CriarTokenColaborador(req, res) {
         try {
             let { nome, cpf } = req.body;
-            console.log(req.body)
-            console.log('------', nome, 'cpf', cpf)
-            const Token = await Services.Buscar(nome, cpf);
+            const { Token, Acesso } = await Services.Buscar(nome, cpf);
             if (Token instanceof Error) return res.status(400).json({ error: Token.message, ok: false })
-            console.log(Token)
-            return res.status(201).json({ Token: Token.Token, Equipe: Token.equipe, ok: true })
+            return res.status(201).json({ Token, ...Acesso, ok: true })
         } catch (error) {
             return res.status(500).json({ error: error.message })
         }

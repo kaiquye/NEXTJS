@@ -7,8 +7,9 @@ export async function AuthUserToken(Token) {
         const data = await Api.post('/auth/', {}, {
             headers: { 'x-custom-header': Token }
         })
-        const { ok, Equipe_id, Acesso, cpf } = data.data;
-        return { ok, Equipe_id, Acesso, cpf };
+        console.log('dataaa', data)
+        const { ok, Equipe_id, Acesso, cpf, id } = data.data;
+        return { ok, Equipe_id, Acesso, cpf, id };
     } catch (error) {
         alert('ero')
         console.log({ error })

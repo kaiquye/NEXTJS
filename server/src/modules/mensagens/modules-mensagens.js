@@ -15,9 +15,9 @@ class Model {
     }
 
     async BuscarTodos(equipe) {
-        console.log('eq',equipe)
+        console.log('eq', equipe)
         try {
-            return await ConnectionDatabase('Mensagens').select('mensagem').where('Equipe_id', equipe);
+            return await ConnectionDatabase('Mensagens').select('mensagem').where('Equipe_id', equipe).orderBy('id', 'desc');
         } catch (error) {
             console.log(error)
             throw new Error('Não foi possivel buscar mensagens')

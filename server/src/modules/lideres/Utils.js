@@ -8,7 +8,10 @@ class Utils {
         }
         return false;
     }
-    validarCPF(cpf) {
+    validarCPF(CPFs) {
+        console.log(CPFs)
+        const cpf = `${CPFs}`
+        console.log(cpf)
         var CalcularDigitosVerificadores = 0;
         for (let i = 0; i <= 8; i++) {
             CalcularDigitosVerificadores += (Number(cpf[i]) * (10 - i))

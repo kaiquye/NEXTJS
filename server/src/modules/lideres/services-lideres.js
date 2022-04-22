@@ -14,7 +14,7 @@ class Services {
         }
     }
 
-    async CriarToken(nome, cpf, equipe) {
+    async CriarToken(nome, cpf) {
         try {
             if (!Utils.validarCPF(cpf)) return new Error('Cpf invalido !')
             const Lider = await Model.Buscar(nome, cpf);

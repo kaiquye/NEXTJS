@@ -1,29 +1,22 @@
-import stlye from './mensagem.module.css'
+import style from './mensagem.module.css'
 
-export default function MensagensEquipe({ mensagens }) {
+export default function MensagemTemporarias({ mensagensEquipe, mensagemLider }) {
 
     return (
-        <section className={stlye.section_mensagem} >
-            <main className={stlye.main_mensagem} >
-                <div className={stlye.div_mensagem_pt} >
-                    <h1>PT-BR</h1>
-                    {mensagens.map((msg, index1) => (
-                        <section>
-                            <p >Mensagem : </p>
-                            <h1 style={{ marginBottom: '10px' }} key={index1} >{msg.mensagem}</h1>
-                        </section>
-                    ))}
-                </div>
-                <div className={stlye.div_mensagem_in} >
-                    <h1>IN</h1>
-                    {mensagens.map((msg, index2) => (
-                        <section>
-                            <p>Message : </p>
-                            <h1 style={{ marginBottom: '10px' }} key={index2} >{msg.mensagem}</h1>
-                        </section>
-                    ))}
-                </div>
-            </main>
-        </section >
+        <section className={style.section} >
+            <div className={style.div1}>
+                <p style={{ marginBottom: '5px', marginTop: '5px' }} >Mensagem do lider</p>
+                <label>{mensagemLider.mensagem}</label>
+            </div>
+            <div className={style.div}>
+                {mensagensEquipe.map((mensagem) => (
+                    <div className={style.div2}>
+                        <p style={{ marginBottom: '5px', marginTop: '5px', fontSize : '10px' }}>Equipe</p>
+                        <h5>{mensagem.mensagem}</h5>
+                    </div>
+                ))
+                }
+            </div>
+        </section>
     )
 }

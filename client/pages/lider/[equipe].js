@@ -7,10 +7,13 @@ import { useRouter } from 'next/router'
 import { BuscarMensagens } from '../../Services/mensagem/buscarMensagens.js'
 import { BuscarTodosColaboradores } from '../../Services/index..js'
 import stlye from '../../styles/lider.module.css'
+import { BuscarMensagensTemporarias } from '../../Services/mensagem/mensagenstemporarias.js'
 
-export default function Lider({ mensagens, lider, Colaborador }) {
+export default function Lider({ mensagens, mensagemLider, Colaborador }) {
 
     const router = useRouter()
+
+
 
     const { isAuth, singUserColaborador, AuthUser, signUserLider, cpf, equipe, EnviarMensagemLider } = useContext(AuthContext)
 
@@ -21,7 +24,6 @@ export default function Lider({ mensagens, lider, Colaborador }) {
                 const cookies = parseCookies()
                 const { ok } = await AuthUser(cookies.token)
                 if (!ok) return router.push('/')
-
             })();
         }
     }, [])
@@ -30,11 +32,10 @@ export default function Lider({ mensagens, lider, Colaborador }) {
         <sectio className={stlye.section_lider} >
             <main className={stlye.main_lider} >
                 <div className={stlye.menu_lider}>
-                    <FormularioLider id={equipe} enviar={EnviarMensagemLider} />
+                    <FormularioLider id={equipe} cpf={cpf} enviar={EnviarMensagemLider} />
                 </div>
-                <div>
-                    <h3 style={{ textAlign: 'center', marginBottom: '10px', marginTop: '15px' }}>Suas mensagens</h3>
-                    <MensagensEquipe mensagens={mensagens} />
+                <div  style={{marginTop : '20px'}} >
+                    <MensagensEquipe mensagemLider={mensagemLider} mensagensEquipe={mensagens} />
                 </div>
             </main>
         </sectio>
@@ -53,7 +54,9 @@ export async function getServerSideProps(ctx) {
             }
         }
     }
+    const mensagemTm = await BuscarMensagensTemporarias(ctx.query.equipe)
     const data = await BuscarMensagens(ctx.query.equipe)
+    console.log(data)
     if (data instanceof Error) {
         return {
             redirect: {
@@ -64,7 +67,8 @@ export async function getServerSideProps(ctx) {
     }
     return {
         props: {
-            mensagens: data,
+            mensagemLider: data[0],
+            mensagens: mensagemTm
         },
     }
 }

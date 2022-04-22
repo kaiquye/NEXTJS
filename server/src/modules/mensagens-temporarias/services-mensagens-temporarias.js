@@ -10,5 +10,15 @@ class Services {
             return new Error('Não foi possivel cadastrar uma nova mensagem.')
         }
     }
+
+    async Buscar(equipe) {
+        try {
+            console.log(equipe)
+            const mensagens = await Model.Buscar(equipe);
+            return mensagens
+        } catch (error) {
+            return new Error('Não foi possivel cadastrar uma nova mensagem.')
+        }
+    }
 }
 module.exports = new Services()

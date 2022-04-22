@@ -21,12 +21,12 @@ class Services {
                 return new Error('Cpf invalido.')
             }
             const Acesso = await Model.Buscar(nome, cpf);
-            if (!Acesso) throw new Error('')
-            console.log(Acesso[0].Equipe_id)
-            const Token = NovoToken.CriarTokenColaborador(Acesso.acesso);
-            return { Token, equipe: Acesso[0].Equipe_id };
+            if (!Acesso) throw new Error('Usuario não foi encontrado')
+            const Token = NovoToken.CriarTokenColaborador(Acesso);
+            return { Token, Acesso };
         } catch (error) {
             console.log(error)
+            throw new Error('Usuario não foi encontrado')
         }
     }
 

@@ -15,9 +15,9 @@ class Model {
     async Buscar(nome, cpf) {
         console.log(cpf)
         try {
-            const Evalido = await ConnectionDatabase('colaborador').select('acesso', 'Equipe_id').where('cpf', cpf);
+            const Evalido = await ConnectionDatabase('colaborador').select('id', 'acesso', 'Equipe_id', 'cpf').where('cpf', cpf);
             console.log(Evalido)
-            return Evalido
+            return Evalido[0]
         } catch (error) {
             console.log(error)
             return new Error('Não foi possivel criar uma nova equipe')

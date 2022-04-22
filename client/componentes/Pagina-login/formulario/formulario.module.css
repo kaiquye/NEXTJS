@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(41, 203, 252, 0.747);
+    background-color: rgb(7, 139, 255);
 }
 .div_abst_background{
     box-shadow: rgba(22, 22, 22, 0.315) 10px 10px 10px 10px;
@@ -45,7 +45,7 @@
 }
 .button_formulario_colaborador{
     padding: 10px;
-    background-color: rgba(60, 142, 219, 0.555);
+    background-color: rgb(7, 139, 255);
     border: none;
     padding: 8px;
     color: white;
@@ -62,7 +62,7 @@
 }
 .titulo_formulario{
     width: 50%;
-    background-color: rgba(60, 142, 219, 0.521);
+    background-color: rgb(7, 139, 255);
     text-align: start;
     padding-left: 5px;
     font-family: Arial, Helvetica, sans-serif;
