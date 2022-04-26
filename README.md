@@ -1,2 +1,2 @@
-# Desafio tora transportes
-- Desenvolver um chat em next.js. 
+# Projeto de mensagens
+- Estudo next.js
